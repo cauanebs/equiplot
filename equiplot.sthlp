@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 1.8  01oct2019}{...}
+{* *! version 3.4  01oct2019}{...}
 {viewerjumpto "Syntax" "equiplot##syntax"}{...}
 {viewerjumpto "Description" "levelsof##description"}{...}
 {viewerjumpto "Options" "levelsof##options"}{...}
@@ -26,14 +26,17 @@
 {synoptset 21}{...}
 {synopthdr}
 {synoptline}
-{synopt:{opt s:ort}}define a variable for ordering{p_end}
-{synopt:{opt xtit:le}}specify a title for the x axis{p_end}
-{synopt:{opt xlab:el}}defines how the values of the X axis will be displayed using Stata syntax. E.g. xlabel(20 (10) 80){p_end}
-{synopt:{opt leg:title}}a title for the legend in the graph, such as "Wealth quintiles"{p_end}
-{synopt:{opt noy:reverse}}plots the Y axis in increasing order. Normally the graph is plotted in reverse order.{p_end}
-{synopt:{opt nocap:tion}}removes the note about ICEH{p_end}
 {synopt:{opt connected}}connects all dots with a horizontal line{p_end}
-{synopt:{opt dotsize(X)}}controls the size of the dots, X values should be between 1 to 5 (being 5 the biggest size){p_end}
+{synopt:{opt dotsize(#)}}controls the size of the dots, # can assume values between 1 to 5, being 5 the biggest dot size{p_end}
+{synopt:{opt leg:title(string)}}a title for the legend of the graph, such as "Wealth quintiles"{p_end}
+{synopt:{opt nocap:tion}}removes the note about ICEH{p_end}
+{synopt:{opt noy:reverse}}plots the Y axis in increasing order; normally the graph is plotted in reverse order{p_end}
+{synopt:{opt o:ption(string)}}optional string containing further twoway graph options{p_end}
+{synopt:{opt s:ort({varname})}}define a variable for ordering{p_end}
+{synopt:{opt xlab:el(string)}}defines how the values of the X axis will be displayed using Stata syntax; e.g. xlabel(20 (10) 80){p_end}
+{synopt:{opt xtit:le(string)}}specify a title for the x axis{p_end}
+{synopt:{opt xsize(#)}}controls the width of the plot area{p_end}
+{synopt:{opt ysize(#)}}controls the height of the plot area{p_end}
 {synoptline}
 {p2colreset}{...}
 
@@ -42,20 +45,20 @@
 {title:Description}
 
 {pstd}
-{cmd:equiplot} generates a dot plot mostly used to analyze inequalities between groups. Database should be organized using wide format.
+{cmd:equiplot} generates a dot plot mostly used to compare prevalence/coverage of an outcome according to the levels of a stratifier, and to analyze inequalities between these groups. The database should be organized using wide format.
 
 
 {marker options}{...}
 {title:Options}
 
 {phang}
-{cmd:sort} specify a sorting variable for the over variable. It can be the population size of regions or the SII for the intervention of interest, or regions of the world.
+{cmd:sort} specifies a sorting variable that controls in which order the information on the y axis will be displayed.
 
 {phang}
 {cmd:connected} forces that a horizontal line is drawn connecting all dots, regardless of their ordering.
 
 {phang}
-{cmd:dotsize(X)} controls the size of the dots, with X values ranging from 1 to 5 (being 5 the bigges size)
+{cmd:dotsize(X)} controls the size of the dots, with X values ranging from 1 to 5 (being 5 the bigges size).
 
 
 {marker examples}{...}
@@ -71,14 +74,7 @@ Plots the prevalence of the outcome in each quintile (q1-q5 variables) for each 
 
 {marker developer}{...}
 {title:Developer}
-Developed by Aluisio J D Barros abarros@equidade.org; adapted by Leonardo Ferreira lferreira@equidade.org & Cauane Blumenberg cblumenberg@equidade.org (2013)
-	version 1.1 - 2013 - added handling capabilities for a string or numeric over variable
-	version 1.2 - 2013 - changed handling of numeric over variables to avoid re-enconding. now the order of numeric variable with label is preserved
-	version 1.3 - Feb 2014 - added the sort option
-	version 1.4 - Aug 2014 - added smalldots and yreverse, limited to 5 variables, better selection of the colors for less than 5 groups
-	version 1.5 - July 2015 by Leonardo Ferreira - layout redesigned, removed default note, legend moved from bottom to the top of the graph, added automatic rescaling of margins
-	version 1.6 - Apr 2019 by Cauane Blumenberg - added support to plot 10 variabels, automatically selects suitable colors for 2, 3, 5 and 10 variables, added connected option
-	version 1.7 - May 2019 by Cauane Blumenberg - dotsize(X) option for controling the size of the dots; removed the option smalldots
-	version 1.7 - May 2019 by Cauane Blumenberg - added suport to control the size of the dots ranging from 1 to 5 (being 5 the biggest size)
-	version 1.8 - July 2019 by Cauane Blumenberg - fixed a bug in y axis labels when plottiong 100+ observations
-	version 1.9 - October 2019 by Cauane Blumenberg - dots from poorer groups are now on top of dots from wealthier groups 
+Developed by Aluisio JD Barros, PhD (abarros@equidade.org); 
+Adapted by Cauane Blumenberg, PhD (cblumenberg@equidade.org) & Leonardo Ferreira, MSc (lferreira@equidade.org);
+Currently mantained by Cauane Blumenberg, PhD (cblumenberg@equidade.org).
+
