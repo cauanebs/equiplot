@@ -27,4 +27,4 @@ Perform the following steps to install Stata ado files:
 + 3.4. Dots from poorer groups are now on top of dots from wealthier groups (Oct 2019 - Cauane Blumenberg)
 
 ## Developer
-The `equiplot` command was first developed by Aluisio JD Barros, PhD. It is now mantained by Cauane Blumenberg, PhD.
+The `equiplot` command was first developed by Aluisio JD Barros, PhD. It was adapted by Leonardo Ferreira, MSc and it is now mantained by Cauane Blumenberg, PhD.
